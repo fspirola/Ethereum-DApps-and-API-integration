@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Ethereum DApps and API integration</title>
+        <link href="css/styles.css" rel="stylesheet" />
+		 <script src="./node_modules/web3/dist/web3.min.js"></script>
+		 <script src="./index.js"></script>    
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Ethereum DApps and API integration</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Avaliação da disciplina Ethereum Dapps and API integrations no curso MBA Blockchain - FIAP</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div onclick="apiGetName()" class="card-body">Click to Token Name: <label id="name"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div onclick="apiGetSymbol()" class="card-body">Click to Token Symbol: <label id="symbol"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div onclick="apiGetDecimals()" class="card-body">Click to Token Decimals: <label id="decimals"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div onclick="apiGetTotalSupply()" class="card-body">Click to Total Supply: <label id="totalSupply"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="owner" class="sr-only">Address</label>
+								<input class="form-control" id="owner" placeholder="Owner Address">
+							  </div>
+                              <a href="#" onclick="apiGetBalanceOf()" class="btn btn-primary mb-2">Balance Of</a>
+                            </form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder"></label></span>
+                            </div>
+                        </div>
+						<br />
+						<div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="owner1" class="sr-only">Address</label>
+								<input class="form-control" id="owner1" placeholder="Owner Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="spender" class="sr-only">Address</label>
+								<input class="form-control" id="spender" placeholder="Spender Address">
+							  </div>
+                              <a href="#" onclick="apiGetAllowance()" class="btn btn-primary mb-2">Allowance</a>
+                            </form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder2"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="mintto" class="sr-only">Address</label>
+								<input class="form-control" id="mintto" placeholder="Owner Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="value" class="sr-only">Value</label>
+								<input class="form-control" id="value" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiMint()" class="btn btn-primary mb-2">Mint</a>
+                            </form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder3"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="addrspender" class="sr-only">Address</label>
+								<input class="form-control" id="addrspender" placeholder="Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="valuespender" class="sr-only">Value</label>
+								<input class="form-control" id="valuespender" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiIncreaseAllowance()" class="btn btn-primary mb-2">Increase Allowance</a>
+                            </form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder4"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="addrspenderdecr" class="sr-only">Address</label>
+								<input class="form-control" id="addrspenderdecr" placeholder="Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="valuedecrease" class="sr-only">Value</label>
+								<input class="form-control" id="valuedecrease" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiDecreaseAllowance()" class="btn btn-primary mb-2">Decrease Allowance</a>
+                            </form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder5"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="trfadd" class="sr-only">Address</label>
+								<input class="form-control" id="trfadd" placeholder="Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="trfvalue" class="sr-only">Value</label>
+								<input class="form-control" id="trfvalue" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiTransfer()" class="btn btn-primary mb-2">Transfer</a>
+							</form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder6"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="addrspenderap" class="sr-only">Address</label>
+								<input class="form-control" id="addrspenderap" placeholder="Address">
+                              </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="valuespenderap" class="sr-only">Value</label>
+								<input class="form-control" id="valuespenderap" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiApprove()" class="btn btn-primary mb-2">Approve</a>
+							</form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder7"></label></span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <form class="form-inline">
+							  <div class="form-group mx-sm-3 mb-2">
+								<label for="from" class="sr-only">Address</label>
+								<input class="form-control" id="from" placeholder="From Address">
+                              </div>
+                              <form class="form-inline">
+                                <div class="form-group mx-sm-3 mb-2">
+                                  <label for="to" class="sr-only">To</label>
+                                  <input class="form-control" id="to" placeholder="To Address">
+                                </div>
+                              <div class="form-group mx-sm-3 mb-2">
+								<label for="valueto" class="sr-only">Value</label>
+								<input class="form-control" id="valueto" placeholder="Value">
+							  </div>
+                              <a href="#" onclick="apiTransferFrom()" class="btn btn-primary mb-2">Transfer From</a>
+							</form>
+                            <div>
+                                <span class="mx-sm-3 mb-2"><label id="alert_placeholder8"></label></span>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; MBA Blockchain FIAP 2020</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+       
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

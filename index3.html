@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <title>Ethereum DApps and API integration</title>
+
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+    <script src="./index.js"></script>    
+  </head>
+
+  <body class="container">
+
+    <h1 class="page-header">Ethereum DApps and API integration</h1>
+    <h2 class="page-header">Avaliação da disciplina Ethereum Dapps and API integrations no curso MBA Blockchain - FIAP</h2>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Set information</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="newInfo">Info:</label> </td>
+                <td>
+                  <input class="form-control" id="newInfo">
+                </td>                          
+              </tr>
+            </table>
+          </div>
+          <a href="#" onclick="registerSetInfo()" class="btn btn-primary">Set</a>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Token Name</h3>
+        <form class="form-inline" role="form">
+          <a href="#" onclick="apiGetName()" class="btn btn-primary">Get</a>
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>Info:</td>
+                <td>
+                  <label id="name">
+                </td>                          
+              </tr>
+            </table>
+          </div>                
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Token Symbol</h3>
+        <form class="form-inline" role="form">
+          <a href="#" onclick="apiGetSymbol()" class="btn btn-primary">Get</a>
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>Info:</td>
+                <td>
+                  <label id="symbol">
+                </td>                          
+              </tr>
+            </table>
+          </div>                
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Token Decimals</h3>
+        <form class="form-inline" role="form">
+          <a href="#" onclick="apiGetDecimals()" class="btn btn-primary">Get</a>
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>Info:</td>
+                <td>
+                  <label id="decimals">
+                </td>                          
+              </tr>
+            </table>
+          </div>                
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Token Total Supply</h3>
+        <form class="form-inline" role="form">
+          <a href="#" onclick="apiGetTotalSupply()" class="btn btn-primary">Get</a>
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>Info:</td>
+                <td>
+                  <label id="totalSupply">
+                </td>                          
+              </tr>
+            </table>
+          </div>                
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Balance Of</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="owner">Onwer Address:</label> </td>
+                <td>
+                  <input class="form-control" id="owner">
+                </td>              
+                <td>
+                  <a href="#" onclick="apiGetBalanceOf()" class="btn btn-primary">Get Balance</a>
+                </td>            
+              </tr>
+              <tr>
+                <td>Info:</td>
+                  <td>
+                    <label id="balanceOf">
+                  </td>   
+              </tr>                
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Allowance</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="owner1">Owner Address:</label> </td>
+                <td>
+                  <input class="form-control" id="owner1">
+                </td>           
+                <td><label for="spender">Spender Address:</label> </td>
+                <td>
+                  <input class="form-control" id="spender">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiGetAllowance()" class="btn btn-primary">Get Allowance</a>
+                </td>            
+              </tr>
+              <tr>
+                <td>Info:</td>
+                  <td>
+                    <label id="allowance">
+                  </td>   
+              </tr>                
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Mint</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="mintto">To Address:</label> </td>
+                <td>
+                  <input class="form-control" id="mintto">
+                </td>           
+                <td><label for="value">Value</label> </td>
+                <td>
+                  <input class="form-control" id="value">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiMint()" class="btn btn-primary">Mint</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Increase Allowance</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="addrspender">Address Spender:</label> </td>
+                <td>
+                  <input class="form-control" id="addrspender">
+                </td>           
+                <td><label for="valuespender">Value</label> </td>
+                <td>
+                  <input class="form-control" id="valuespender">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiIncreaseAllowance()" class="btn btn-primary">Increase Allowance</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Decrease Allowance</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="addrspenderdecr">Address Spender:</label> </td>
+                <td>
+                  <input class="form-control" id="addrspenderdecr">
+                </td>           
+                <td><label for="valuedecrease">Value Decrease</label> </td>
+                <td>
+                  <input class="form-control" id="valuedecrease">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiDecreaseAllowance()" class="btn btn-primary">Decrease Allowance</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Transfer</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="trfadd">Transfer To:</label> </td>
+                <td>
+                  <input class="form-control" id="trfadd">
+                </td>           
+                <td><label for="trfvalue">Value</label> </td>
+                <td>
+                  <input class="form-control" id="trfvalue">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiTransfer()" class="btn btn-primary">Transfer</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Approve</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="addrspenderap">Address Spender:</label> </td>
+                <td>
+                  <input class="form-control" id="addrspenderap">
+                </td>           
+                <td><label for="valuespenderap">Value</label> </td>
+                <td>
+                  <input class="form-control" id="valuespenderap">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiApprove()" class="btn btn-primary">Approve</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div>
+        <h3 class="sub-header">Transfer From</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <table>
+              <tr>
+                <td><label for="from">From:</label> </td>
+                <td>
+                  <input class="form-control" id="from">
+                </td>           
+                <td><label for="to">To:</label> </td>
+                <td>
+                  <input class="form-control" id="to">
+                </td>           
+                <td><label for="valueto">Value</label> </td>
+                <td>
+                  <input class="form-control" id="valueto">
+                </td>       
+                <td>
+                  <a href="#void" onclick="apiTransferFrom()" class="btn btn-primary">Transfer From</a>
+                </td>            
+              </tr>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>    
+
+  </body>
+</html>
