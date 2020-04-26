@@ -80,7 +80,7 @@ function apiGetBalanceOf() {
       });
     } catch(err) {
       console.error(err.message);
-      showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder");
+      showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder");
     }
   }
   $("#owner").val('');
@@ -98,7 +98,7 @@ function apiGetAllowance() {
       });
     } catch(err) {
       console.error(err.message);
-      showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder2");
+      showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder2");
     }
     
   }
@@ -119,7 +119,7 @@ function apiMint() {
       });
     } catch(err) {
         console.error(err.message);
-        showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder3");
+        showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder3");
     }
   }
   
@@ -140,7 +140,7 @@ function apiIncreaseAllowance() {
       });
     } catch(err) {
       console.error(err.message);
-      showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder4");
+      showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder4");
     }
   }
   
@@ -161,7 +161,7 @@ function apiDecreaseAllowance() {
         });
       } catch(err) {
         console.error(err.message);
-        showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder5");
+        showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder5");
       }
   }
   
@@ -182,7 +182,7 @@ function apiTransfer() {
         });
       } catch(err) {
         console.error(err.message);
-        showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder6");
+        showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder6");
     }
   }
   
@@ -203,7 +203,7 @@ function apiApprove() {
         });
       } catch(err) {
         console.error(err.message);
-        showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder7");
+        showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder7");
     }
   }
   $("#addrspenderap").val('');
@@ -224,7 +224,7 @@ function apiTransferFrom() {
         });
       } catch(err) {
         console.error(err.message);
-        showAlert2(`Erro: ${err.message}`, "alert alert-success", "#alert_placeholder8");
+        showAlert2(`Erro: ${err.message}`, "alert alert-danger", "#alert_placeholder8");
     }
   }
   
