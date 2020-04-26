@@ -14,7 +14,7 @@
 
 **Utilização**
 
-- Clone o repositóri
+- Clone o repositório
 - Efetue a instalação das dependências
 - Inicie o sevidor
 
