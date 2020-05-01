@@ -3,6 +3,9 @@
 ## Avaliação da disciplina Ethereum Dapps and API integrations no curso MBA Blockchain - FIAP
 
 - Fabio dos Santos Pirola
+- Beatriz Grance Rinn
+- Rafael Marques Stocco de Souza
+- Wagner de Mello Doroteio
 
 **Pré-requisitos**
 
