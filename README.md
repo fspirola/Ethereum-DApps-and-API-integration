@@ -6,7 +6,7 @@
 
 **Pré-requisitos**
 
-- Extensão Metamask nos navegadores Chrome, Firefox ou Brave
+- Extensão [Metamask](https://metamask.io/) nos navegadores Chrome, Firefox ou Brave
 - Conta na rede Ropsten com saldo em ether
 
 **Utilização**
