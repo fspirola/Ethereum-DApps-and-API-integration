@@ -25,6 +25,6 @@ node server.js
 
 ```
 
-Na maquiná local, acesse através da URL http://localhost:3300
+Na máquina local, acesse através da URL http://localhost:3300
 
 Contrato utilizado publicado na rede Ropsten: [0xa4cedb7277baec50e0445d65bd84869e666fbb18](https://ropsten.etherscan.io/address/0xa4cedb7277baec50e0445d65bd84869e666fbb18)
